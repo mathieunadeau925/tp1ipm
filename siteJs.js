@@ -191,7 +191,6 @@ document.getElementById("wc3").onclick = function() {
 };
 
 document.getElementById("fermerDesc").onclick = function() {
-  window.scrollTo({ top: 0, behavior: "smooth" });
   window.setTimeout(function() {
     document.getElementById("carteDesc").classList.add("is-hidden");
   }, 350);
