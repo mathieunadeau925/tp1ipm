@@ -10,7 +10,6 @@
 </head>
 
 <body class="has-background-black">
-
   <!--Barre de navigation-->
   <div class="block ">
     <nav class="navbar has-background-dark">
@@ -37,12 +36,33 @@
 
     <!--block panier d'achats, hidden lorsque aucun article n'est ajouté-->
     <div class="block">
-      <aside id="panier" class="menu is-hidden has-background-dark">
-        <p id="titrePanier" class="menu-label has-text-right has-text-light">Panier d'achats</p>
-        <ul>
-        </ul>
-        <p id="totalPanier" class="menu-label has-text-right has-text-light"></p>
-      </aside>
+      <div class="content">
+        <table id="panier" class="table is-hidden has-text-light has-background-dark table">
+          <thead>
+            <tr>
+              <th id="entetePanier" class=" has-text-light has-text-centered" title="Panier">Panier d'achats
+              </th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+
+            </tr>
+            <tr>
+              <th>
+                <p id="totalPanier" class="has-text-light has-text-right" title="Total"></p>
+                <button id="btnVider" class="button is-link is-pulled-left" title="Total">Vider le panier d'achats
+                </button>
+                <button id="btnAcheterTout" class="button is-link is-pulled-right" title="Total">Acheter
+                </button>
+              </th>
+            </tr>
+          </tfoot>
+          <tbody id="listePanier">
+
+          </tbody>
+        </table>
+      </div>
     </div>
     <!-- fin panier d'achats -->
 
@@ -245,7 +265,7 @@
               <div class="content has-text-left">
                 <p class="has-text-light">Pour la horde ou pour l'alliance, faites votre choix!</p>
                 <br>
-                <button id="wc3" class="button is-link is-pulled-right">Voir plus</button>
+                <button id="warcraft3" class="button is-link is-pulled-right">Voir plus</button>
               </div>
             </div>
           </div>
