@@ -1,5 +1,66 @@
-var compteur = 1;
-var totalPrix = 0;
+var listeJeux = new ListeJeux();
+var jeu;
+
+function Jeu(nom, desc, prix, imgSrc) {
+  this.nom = nom;
+  this.desc = desc;
+  this.prix = prix;
+  this.imgSrc = imgSrc;
+  this.toHtml = `
+  <div class="articlePanier has-text-left">
+      <span>${nom}, ${prix} $</span>
+      <button class="delete is-pulled-right" type="button"></button>
+  </div>`;
+}
+
+function ListeJeux() {
+  this.liste = [];
+  this.total = 0;
+
+  this.incrementer = function(total) {
+    this.total += total;
+    this.notify();
+  };
+
+  this.decrementer = function(total) {
+    this.total -= total;
+    this.notify();
+  };
+
+  this.getTotal = function() {
+    return this.total;
+  };
+
+  this.ajouterListe = function(jeu) {
+    this.liste.push(jeu);
+    this.incrementer(jeu.prix);
+    this.notify();
+  };
+
+  this.retirerListe = function(jeu) {
+    this.liste.splice(this.getListe().indexOf(jeu), 1);
+    this.decrementer(jeu.prix);
+    this.notify();
+  };
+
+  this.getListe = function() {
+    return this.liste;
+  };
+
+  this.observateurs = []; //liste des observateurs
+
+  this.addObserver = function(observateur) {
+    this.observateurs.push(observateur);
+    observateur.update(this);
+  };
+
+  this.notify = function() {
+    var i;
+    for (i = 0; i < this.observateurs.length; i++)
+      this.observateurs[i].update(this);
+  };
+}
+
 var aoe3 = {
   nom: "Age of Empires III",
   desc:
@@ -59,18 +120,177 @@ var starwars = {
 var diablo2 = {
   nom: "Diablo 2",
   desc:
-    "Diablo II est un jeu vidéo d'action et de rôle de type hack 'n' slash développé par Blizzard North. Il constitue le deuxième opus de la série, succédant à Diablo et à son extension Diablo: Hellfire. Le jeu a été publié en Amérique du Nord par Blizzard Entertainment et en Europe par Sierra Entertainment le 29 juin 2000. Le jeu se déroule dans un monde imaginaire de type médiéval-fantastique dans lequel le joueur peut choisir d’incarner une amazone, un barbare, un nécromancien, un paladin ou une ensorceleuse dans ses combats contre les armées de créatures démoniaques envoyées dans le monde des hommes par les démons Diablo, Mephisto et Baal.",
+    "Diablo II est un jeu vidéo d'action et de rôle de type hack 'n' slash développé par Blizzard North. Il constitue le deuxième opus de la série, succédant à Diablo et à son extension Diablo: Hellfire. Le jeu newA été publié en Amérique du Nord par Blizzard Entertainment et en Europe par Sierra Entertainment le 29 juin 2000. Le jeu se déroule dans un monde imaginaire de type médiéval-fantastique dans lequel le joueur peut choisir d’incarner une amazone, un barbare, un nécromancien, un paladin ou une ensorceleuse dans ses combats contre les armées de créatures démoniaques envoyées dans le monde des hommes par les démons Diablo, Mephisto et Baal.",
   prix: 29.99,
   imgSrc: document.getElementById("imgDiablo2").src
 };
 
-var wc3 = {
+var warcraft3 = {
   nom: "Warcraft 3",
   desc:
     "Le jeu se déroule dans le monde médiéval-fantastique d'Azeroth plusieurs années après les événements de Warcraft II: Beyond the Dark Portal. En plus des humains et des orcs déjà présents dans les deux premiers opus de la série, Warcraft III permet au joueur de commander deux nouvelles factions, les elfes de la nuit et les morts-vivants.",
   prix: 29.99,
   imgSrc: document.getElementById("imgWc3").src
 };
+
+document.getElementById("aoe3").onclick = function() {
+  carteDescAfficher();
+  jeu = new Jeu(aoe3.nom, aoe3.desc, aoe3.prix, aoe3.imgSrc);
+  afficherJeuEnVente(jeu);
+};
+
+document.getElementById("assCreed3").onclick = function() {
+  carteDescAfficher();
+  jeu = new Jeu(
+    assCreed3.nom,
+    assCreed3.desc,
+    assCreed3.prix,
+    assCreed3.imgSrc
+  );
+  afficherJeuEnVente(jeu);
+};
+
+document.getElementById("assCreedOdyssey").onclick = function() {
+  carteDescAfficher();
+  jeu = new Jeu(
+    assCreedOdyssey.nom,
+    assCreedOdyssey.desc,
+    assCreedOdyssey.prix,
+    assCreedOdyssey.imgSrc
+  );
+  afficherJeuEnVente(jeu);
+};
+
+document.getElementById("redAlert3").onclick = function() {
+  carteDescAfficher();
+  jeu = new Jeu(
+    redAlert3.nom,
+    redAlert3.desc,
+    redAlert3.prix,
+    redAlert3.imgSrc
+  );
+  afficherJeuEnVente(jeu);
+};
+
+document.getElementById("gta4").onclick = function() {
+  carteDescAfficher();
+  jeu = new Jeu(gta4.nom, gta4.desc, gta4.prix, gta4.imgSrc);
+  afficherJeuEnVente(jeu);
+};
+
+document.getElementById("starcraft1").onclick = function() {
+  carteDescAfficher();
+  jeu = new Jeu(
+    starcraft.nom,
+    starcraft.desc,
+    starcraft.prix,
+    starcraft.imgSrc
+  );
+  afficherJeuEnVente(jeu);
+};
+
+document.getElementById("starwars").onclick = function() {
+  carteDescAfficher();
+  jeu = new Jeu(starwars.nom, starwars.desc, starwars.prix, starwars.imgSrc);
+  afficherJeuEnVente(jeu);
+};
+
+document.getElementById("diablo2").onclick = function() {
+  carteDescAfficher();
+  jeu = new Jeu(diablo2.nom, diablo2.desc, diablo2.prix, diablo2.imgSrc);
+  afficherJeuEnVente(jeu);
+};
+
+document.getElementById("warcraft3").onclick = function() {
+  carteDescAfficher();
+  jeu = new Jeu(
+    warcraft3.nom,
+    warcraft3.desc,
+    warcraft3.prix,
+    warcraft3.imgSrc
+  );
+  afficherJeuEnVente(jeu);
+};
+
+document.getElementById("fermerDesc").onclick = function() {
+  window.setTimeout(function() {
+    document.getElementById("carteDesc").classList.add("is-hidden");
+  }, 350);
+  document.getElementById("jeuEnVente").innerHTML = "Jeux en vente";
+};
+
+document.getElementById("btnAjouter").onclick = function() {
+  afficherPanier();
+  listeJeux.ajouterListe(jeu);
+};
+
+document.getElementById("btnAcheterTout").onclick = function() {
+  alert("Merci d'avoir acheté chez NostalGames!");
+  var liste = document.querySelectorAll(".articlePanier");
+  for (var i = 0; i < listeJeux.getListe().length; i++) {
+    var jeu = listeJeux.getListe()[i];
+    listeJeux.retirerListe(jeu);
+    liste[i].innerHTML = "";
+  }
+};
+
+document.getElementById("btnVider").onclick = function() {
+  var liste = document.querySelectorAll(".articlePanier");
+  for (var i = 0; i < listeJeux.getListe().length; i++) {
+    var jeu = listeJeux.getListe()[i];
+    listeJeux.retirerListe(jeu);
+    liste[i].innerHTML = "";
+  }
+};
+
+function afficherJeuEnVente(jeu) {
+  document.getElementById("jeuEnVente").innerHTML = jeu.nom;
+  document.getElementById("imgPanier").src = jeu.imgSrc;
+  document.getElementById("descPanier").innerHTML = jeu.desc;
+  document.getElementById("descPrix").innerHTML = jeu.prix + " $";
+}
+var listeJeuxView = {
+  update: function(listeJeux) {
+    //obtenir nombre d'articles dans le panier
+    var longueurListe = listeJeux.getListe().length;
+
+    document.getElementById("entetePanier").innerHTML =
+      "Panier d'achats (" + longueurListe + ")";
+
+    if (longueurListe == 0) {
+      document.getElementById("panier").classList.add("is-hidden");
+    }
+
+    //obtenir total du panier
+    document.getElementById("totalPanier").innerHTML =
+      "Total du panier: " + listeJeux.getTotal() + "$";
+
+    //ajout des articles au panier
+    var jeux = "";
+    for (var i = 0; i < longueurListe; i++) {
+      jeux += listeJeux.getListe()[i].toHtml;
+    }
+    document.getElementById("listePanier").innerHTML = jeux;
+  }
+};
+
+var listeBoutonsView = {
+  update: function() {
+    var listeArticleBoutons = document.getElementsByClassName("delete");
+    for (var i = 0; i < listeArticleBoutons.length; i++) {
+      var button = listeArticleBoutons[i];
+      var jeu = listeJeux.getListe()[i];
+      button.addEventListener("click", function() {
+        var buttonClicked = event.target;
+        listeJeux.retirerListe(jeu);
+        buttonClicked.parentElement.remove();
+      });
+    }
+  }
+};
+
+listeJeux.addObserver(listeJeuxView);
+listeJeux.addObserver(listeBoutonsView);
 
 function carteDescAfficher() {
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -89,132 +309,3 @@ function afficherPanier() {
     }, 350);
   }
 }
-
-function ajouterPanier() {
-  var nom = document.getElementById("jeuEnVente").innerHTML;
-  var prix = document.getElementById("descPrix").innerHTML;
-  var idNom = nom.substring(0, 1) + compteur;
-  var idLi = nom.substring(0, 1) + (compteur + 100);
-  afficherPanier();
-  var ul = document.getElementById("panier");
-  var li = document.createElement("li");
-  li.classList.add("has-text-light");
-  li.classList.add("title");
-  li.setAttribute("id", idLi);
-  li.appendChild(document.createTextNode(nom));
-  var button = document.createElement("button");
-  button.innerHTML = "supprimer du panier";
-  button.classList.add("button");
-  button.classList.add("is-pulled-right");
-  button.classList.add("is-link");
-  li.appendChild(button);
-  button.setAttribute("id", idNom);
-  ul.appendChild(li);
-  document.getElementById("titrePanier").innerHTML =
-    "Panier d'achats (" + compteur + ")";
-  totalPrix += parseFloat(prix.replace(/[^\d.-]/g, ""));
-  document.getElementById("totalPanier").innerHTML =
-    "Total du panier: " + totalPrix + " $";
-  compteur++;
-}
-
-document.getElementById("aoe3").onclick = function() {
-  carteDescAfficher();
-  document.getElementById("jeuEnVente").innerHTML = aoe3.nom;
-  document.getElementById("imgPanier").src = aoe3.imgSrc;
-  document.getElementById("descPanier").innerHTML = aoe3.desc;
-  document.getElementById("descPrix").innerHTML = aoe3.prix + " $";
-};
-
-document.getElementById("assCreed3").onclick = function() {
-  carteDescAfficher();
-  document.getElementById("jeuEnVente").innerHTML = assCreed3.nom;
-  document.getElementById("imgPanier").src = assCreed3.imgSrc;
-  document.getElementById("descPanier").innerHTML = assCreed3.desc;
-  document.getElementById("descPrix").innerHTML = assCreed3.prix + " $";
-};
-
-document.getElementById("assCreedOdyssey").onclick = function() {
-  carteDescAfficher();
-  document.getElementById("jeuEnVente").innerHTML = assCreedOdyssey.nom;
-  document.getElementById("imgPanier").src = assCreedOdyssey.imgSrc;
-  document.getElementById("descPanier").innerHTML = assCreedOdyssey.desc;
-  document.getElementById("descPrix").innerHTML = assCreedOdyssey.prix + " $";
-};
-
-document.getElementById("redAlert3").onclick = function() {
-  carteDescAfficher();
-  document.getElementById("jeuEnVente").innerHTML = redAlert3.nom;
-  document.getElementById("imgPanier").src = redAlert3.imgSrc;
-  document.getElementById("descPanier").innerHTML = redAlert3.desc;
-  document.getElementById("descPrix").innerHTML = redAlert3.prix + " $";
-};
-
-document.getElementById("gta4").onclick = function() {
-  carteDescAfficher();
-  document.getElementById("jeuEnVente").innerHTML = gta4.nom;
-  document.getElementById("imgPanier").src = gta4.imgSrc;
-  document.getElementById("descPanier").innerHTML = gta4.desc;
-  document.getElementById("descPrix").innerHTML = gta4.prix + " $";
-};
-
-document.getElementById("starcraft1").onclick = function() {
-  carteDescAfficher();
-  document.getElementById("jeuEnVente").innerHTML = starcraft.nom;
-  document.getElementById("imgPanier").src = starcraft.imgSrc;
-  document.getElementById("descPanier").innerHTML = starcraft.desc;
-  document.getElementById("descPrix").innerHTML = starcraft.prix + " $";
-};
-
-document.getElementById("starwars").onclick = function() {
-  carteDescAfficher();
-  document.getElementById("jeuEnVente").innerHTML = starwars.nom;
-  document.getElementById("imgPanier").src = starwars.imgSrc;
-  document.getElementById("descPanier").innerHTML = starwars.desc;
-  document.getElementById("descPrix").innerHTML = starwars.prix + " $";
-};
-
-document.getElementById("diablo2").onclick = function() {
-  carteDescAfficher();
-  document.getElementById("jeuEnVente").innerHTML = diablo2.nom;
-  document.getElementById("imgPanier").src = diablo2.imgSrc;
-  document.getElementById("descPanier").innerHTML = diablo2.desc;
-  document.getElementById("descPrix").innerHTML = diablo2.prix + " $";
-};
-
-document.getElementById("wc3").onclick = function() {
-  carteDescAfficher();
-  document.getElementById("jeuEnVente").innerHTML = wc3.nom;
-  document.getElementById("imgPanier").src = wc3.imgSrc;
-  document.getElementById("descPanier").innerHTML = wc3.desc;
-  document.getElementById("descPrix").innerHTML = wc3.prix + " $";
-};
-
-document.getElementById("fermerDesc").onclick = function() {
-  window.setTimeout(function() {
-    document.getElementById("carteDesc").classList.add("is-hidden");
-  }, 350);
-  document.getElementById("jeuEnVente").innerHTML = "Jeux en vente";
-};
-
-document.getElementById("btnAjouter").onclick = function() {
-  ajouterPanier();
-};
-
-document.addEventListener("click", function(e) {
-  var idBouton = e.target.id;
-  if (!isNaN(idBouton) || idBouton.length < 3) {
-    var idLi =
-     idBouton.substring(0, 1) + (parseInt(idBouton.substring(1, 2)) + 100);
-    //document.getElementById("panier").remove(document.getElementById("idLi"));
-    //--compteur;
-   // if (compteur === 0) {
-    //  document.getElementById("titrePanier").innerHTML = "Panier d'achats";
-   // } else {
-   //   document.getElementById("titrePanier").innerHTML =
-   //     "Panier d'achats (" + compteur + ")";
-   // }
-    alert(idLi);
-  }
-
-});
