@@ -6,11 +6,10 @@ function Jeu(nom, desc, prix, imgSrc) {
   this.desc = desc;
   this.prix = prix;
   this.imgSrc = imgSrc;
-  this.toHtml = `
-  <div class="articlePanier has-text-left">
+  this.toHtml = `<tr><td class="articlePanier has-text-left">
       <span>${nom}, ${prix} $</span>
       <button class="delete is-pulled-right" type="button"></button>
-  </div>`;
+  </td></tr>`;
 }
 
 function ListeJeux() {
@@ -34,13 +33,16 @@ function ListeJeux() {
   this.ajouterListe = function(jeu) {
     this.liste.push(jeu);
     this.incrementer(jeu.prix);
-    this.notify();
   };
 
   this.retirerListe = function(jeu) {
     this.liste.splice(this.getListe().indexOf(jeu), 1);
     this.decrementer(jeu.prix);
-    this.notify();
+  };
+
+  this.viderListe = function(jeu) {
+    this.liste.pop();
+    this.decrementer(jeu.prix);
   };
 
   this.getListe = function() {
@@ -227,19 +229,21 @@ document.getElementById("btnAjouter").onclick = function() {
 document.getElementById("btnAcheterTout").onclick = function() {
   alert("Merci d'avoir acheté chez NostalGames!");
   var liste = document.querySelectorAll(".articlePanier");
-  for (var i = 0; i < listeJeux.getListe().length; i++) {
+  while (listeJeux.getListe().length != 0) {
+    var i = 0;
     var jeu = listeJeux.getListe()[i];
-    listeJeux.retirerListe(jeu);
-    liste[i].innerHTML = "";
+    listeJeux.viderListe(jeu);
+    liste[i].remove();
   }
 };
 
 document.getElementById("btnVider").onclick = function() {
   var liste = document.querySelectorAll(".articlePanier");
-  for (var i = 0; i < listeJeux.getListe().length; i++) {
+  while (listeJeux.getListe().length != 0) {
+    var i = 0;
     var jeu = listeJeux.getListe()[i];
-    listeJeux.retirerListe(jeu);
-    liste[i].innerHTML = "";
+    listeJeux.viderListe(jeu);
+    liste[i].remove();
   }
 };
 
@@ -257,13 +261,13 @@ var listeJeuxView = {
     document.getElementById("entetePanier").innerHTML =
       "Panier d'achats (" + longueurListe + ")";
 
-    if (longueurListe == 0) {
+    if (longueurListe === 0) {
       document.getElementById("panier").classList.add("is-hidden");
     }
 
     //obtenir total du panier
     document.getElementById("totalPanier").innerHTML =
-      "Total du panier: " + listeJeux.getTotal() + "$";
+      "Total du panier: " + Math.round(listeJeux.getTotal() * 100) / 100 + "$";
 
     //ajout des articles au panier
     var jeux = "";
@@ -278,12 +282,10 @@ var listeBoutonsView = {
   update: function() {
     var listeArticleBoutons = document.getElementsByClassName("delete");
     for (var i = 0; i < listeArticleBoutons.length; i++) {
-      var button = listeArticleBoutons[i];
-      var jeu = listeJeux.getListe()[i];
-      button.addEventListener("click", function() {
-        var buttonClicked = event.target;
+      listeArticleBoutons[i].addEventListener("click", function(e) {
+        var tr = event.target.parentElement.parentElement;
+        var jeu = listeJeux.getListe()[tr.rowIndex - 1];
         listeJeux.retirerListe(jeu);
-        buttonClicked.parentElement.remove();
       });
     }
   }
@@ -293,19 +295,19 @@ listeJeux.addObserver(listeJeuxView);
 listeJeux.addObserver(listeBoutonsView);
 
 function carteDescAfficher() {
-  window.scrollTo({ top: 0, behavior: "smooth" });
   if (document.getElementById("carteDesc").classList.contains("is-hidden")) {
     window.setTimeout(function() {
       document.getElementById("carteDesc").classList.remove("is-hidden");
     }, 350);
   }
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function afficherPanier() {
-  window.scrollTo({ top: 0, behavior: "smooth" });
   if (document.getElementById("panier").classList.contains("is-hidden")) {
     window.setTimeout(function() {
       document.getElementById("panier").classList.remove("is-hidden");
     }, 350);
   }
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
