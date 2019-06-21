@@ -102,16 +102,18 @@
         <!-- article 1 -->
         <div class="column is-12-mobile is-6-tablet is-4-desktop">
           <div class="card has-background-dark">
-            <div class="card-image">
-              <figure class="image">
-                <img id="imgAoe3" src="./images/AOE3.jpg" alt="AOE3">
-              </figure>
+            <!-- 2 lignes modifiées pour l'ajout du texte de l'info bulle (même emplacement du code pour les articles suivants) -->
+			<div class="tooltip card-image">
+				<span class="tooltiptext">Dominez votre ennemi avec votre civilisation favorite.</span>
+				<figure class="image">
+					<img id="imgAoe3" src="./images/AOE3.jpg" alt="AOE3">
+				</figure>
             </div>
             <div class="card-content">
               <div class="content has-text-left">
-                <p class="has-text-light">Dominez votre ennemi avec votre civilisation favorite.
-                </p>
-                <br>
+				<!-- 2 lignes ajoutée pour afficher le titre du jeu pour chaque article (même emplacement du code pour les articles suivants) -->
+				<hr>
+				<p class="game-title">Age of Empires III</p>
                 <button id="aoe3" class="button is-link is-pulled-right">Voir plus</button>
               </div>
             </div>
@@ -121,15 +123,16 @@
         <!-- article 2 -->
         <div class="column is-12-mobile is-6-tablet is-4-desktop">
           <div class="card has-background-dark">
-            <div class="card-image">
-              <figure class="image">
-                <img id="imgAssCreed3" src="./images/AssCreed3.jpg" alt="AssCreed3">
-              </figure>
+            <div class="tooltip card-image">
+				<span class="tooltiptext">Incarnez Connor durant la révolution américaine.</span>
+				<figure class="image">
+					<img id="imgAssCreed3" src="./images/AssCreed3.jpg" alt="AssCreed3">
+				</figure>
             </div>
             <div class="card-content">
               <div class="content has-text-left">
-                <p class="has-text-light">Incarnez Connor durant la révolution américaine.</p>
-                <br>
+				<hr>
+				<p class="game-title">Assassin's Creed III</p>
                 <button id="assCreed3" class="button is-link is-pulled-right">Voir plus</button>
               </div>
             </div>
@@ -139,15 +142,16 @@
         <!-- article 3 -->
         <div class="column is-12-mobile is-6-tablet is-4-desktop">
           <div class="card has-background-dark">
-            <div class="card-image">
+            <div class="tooltip card-image">
+			<span class="tooltiptext">Régnez sur la grèce en tant qu'Alexios ou Kassandra.</span>
               <figure class="image">
-                <img id="imgAssCreedOdyssey" src="./images/AssCreedOdyssey.jpg" alt="AssCreedOdyssey">
-              </figure>
+			    <img id="imgAssCreedOdyssey" src="./images/AssCreedOdyssey.jpg" alt="AssCreedOdyssey">
+				</figure>
             </div>
             <div class="card-content">
               <div class="content has-text-left">
-                <p class="has-text-light">Régnez sur la grèce en tant qu'Alexios ou Kassandra.</p>
-                <br>
+				<hr>
+				<p class="game-title">Assassin's Creed Odyssey</p>
                 <button id="assCreedOdyssey" class="button is-link is-pulled-right">Voir plus</button>
               </div>
             </div>
@@ -162,15 +166,16 @@
         <!-- article 4 -->
         <div class="column is-12-mobile is-6-tablet is-4-desktop">
           <div class="card has-background-dark">
-            <div class="card-image">
+            <div class="tooltip card-image">
+			<span class="tooltiptext has-text-light">Anéantissez votre ennemi avec une armée sans pareille.</span>
               <figure class="image">
                 <img id="imgRedAlert3" src="./images/CCRedAlert3.jpg" alt="RedAlert3">
               </figure>
             </div>
             <div class="card-content">
               <div class="content has-text-left">
-                <p class="has-text-light">Anéantissez votre ennemi avec une armée sans pareille.</p>
-                <br>
+				<hr>
+				<p class="game-title">Red Alert 3</p>
                 <button id="redAlert3" class="button is-link is-pulled-right">Voir plus</button>
               </div>
             </div>
@@ -180,15 +185,16 @@
         <!-- article 5 -->
         <div class="column is-12-mobile is-6-tablet is-4-desktop">
           <div class="card has-background-dark">
-            <div class="card-image">
+           <div class="tooltip card-image">
+			<span class="tooltiptext has-text-light">Conduisez et agissez comme bon vous semble dans une ville immense.</span>
               <figure class="image">
                 <img id="imgGta4" src="./images/GTAIV.jpg" alt="GTAIV">
               </figure>
             </div>
             <div class="card-content">
               <div class="content has-text-left">
-                <p class="has-text-light">Conduisez et agissez comme bon vous semble dans une ville immense.</p>
-                <br>
+				<hr>
+				<p class="game-title">Gran Theft Auto IV</p>
                 <button id="gta4" class="button is-link is-pulled-right">Voir plus</button>
               </div>
             </div>
@@ -198,15 +204,16 @@
         <!-- article 6 -->
         <div class="column is-12-mobile is-6-tablet is-4-desktop">
           <div class="card has-background-dark">
-            <div class="card-image">
+            <div class="tooltip card-image">
+			<span class="tooltiptext has-text-light">Devenez un conquérant et jouer en tant que Zerg, Terran ou Protoss.</span>
               <figure class="image">
                 <img id="imgStarcraft1" src="./images/Sc1Remastered.jpg" alt="Starcraft1">
               </figure>
             </div>
             <div class="card-content">
               <div class="content has-text-left">
-                <p class="has-text-light">Devenez un conquérant et jouer en tant que Zerg, Terran ou Protoss.</p>
-                <br>
+				<hr>
+				<p class="game-title">Starcraft 1</p>
                 <button id="starcraft1" class="button is-link is-pulled-right">Voir plus</button>
               </div>
             </div>
@@ -217,19 +224,19 @@
     <!-- 3eme colonne -->
     <div class="block">
       <div class="columns">
-        <!-- article 7 -->
+         <!-- article 7 -->
         <div class="column is-12-mobile is-6-tablet is-4-desktop">
           <div class="card has-background-dark">
-            <div class="card-image">
+            <div class="tooltip card-image">
+			<span class="tooltiptext has-text-light">Incarnez la rebellion ou l'empire dans ce jeu de tir à la première personne.</span>
               <figure class="image">
                 <img id="imgStarwars" src="./images/StarWars.jpg" alt="StarWars">
               </figure>
             </div>
             <div class="card-content">
               <div class="content has-text-left">
-                <p class="has-text-light">Incarnez la rebellion ou l'empire dans ce jeu de tir à la première personne.
-                </p>
-                <br>
+				<hr>
+				<p class="game-title">Star Wars</p>
                 <button id="starwars" class="button is-link is-pulled-right">Voir plus</button>
               </div>
             </div>
@@ -239,15 +246,16 @@
         <!-- article 8 -->
         <div class="column is-12-mobile is-6-tablet is-4-desktop">
           <div class="card has-background-dark">
-            <div class="card-image">
+            <div class="tooltip card-image">
+			<span class="tooltiptext has-text-light">Partez à l'aventure en retraçant les pas du rôdeur sombre.</span>
               <figure class="image">
                 <img id="imgDiablo2" src="./images/d2Classic.jpg" alt="diablo2">
               </figure>
             </div>
             <div class="card-content">
               <div class="content has-text-left">
-                <p class="has-text-light">Partez à l'aventure en retraçant les pas du rôdeur sombre.</p>
-                <br>
+                <hr>
+				<p class="game-title">Diablo II</p>
                 <button id="diablo2" class="button is-link is-pulled-right">Voir plus</button>
               </div>
             </div>
@@ -258,15 +266,16 @@
 
         <div class="column is-12-mobile is-6-tablet is-4-desktop">
           <div class="card has-background-dark">
-            <div class="card-image">
+            <div class="tooltip card-image">
+			<span class="tooltiptext has-text-light">Pour la horde ou pour l'alliance, faites votre choix!</span>
               <figure class="image">
                 <img id="imgWc3" src="./images/wc3.jpg" alt="warcraft3">
               </figure>
             </div>
             <div class="card-content">
               <div class="content has-text-left">
-                <p class="has-text-light">Pour la horde ou pour l'alliance, faites votre choix!</p>
-                <br>
+                <hr>
+				<p class="game-title">Warcraft III</p>
                 <button id="warcraft3" class="button is-link is-pulled-right">Voir plus</button>
               </div>
             </div>
@@ -278,8 +287,7 @@
 
 
     <div class="block">
-      <p class="has-text-right has-text-light">Créé par Mathieu Nadeau et Nicolas Abad pour fins éducatifs seulement,
-        Juin 2019.</p>
+      <p class="has-text-centered has-text-light">Créé par Mathieu Nadeau et Nicolas Abad pour fins éducatifs seulement, Juin 2019.</p>
     </div>
     <!--Fin container-->
   </div>
