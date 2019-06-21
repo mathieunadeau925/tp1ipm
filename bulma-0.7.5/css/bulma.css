@@ -1,3 +1,59 @@
+/* Code CSS pout les info-bulles */
+
+/* conteneur des info-bulles */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Texte */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100%;
+  height: 4rem;
+  background-color: #555;
+  color: #fff;
+  text-align: left;
+  padding: 10px 10px;
+  border-radius: 5px;
+
+  /* Positionnement*/
+  position: absolute;
+  z-index: 1;
+  bottom: 50%;
+  left: 0%;
+  margin-right: 50px;
+
+  /* Transitions graduelles et opacité des images */
+  opacity: 0.2;
+  transition: opacity 0.5s;
+}
+
+/* Curseur */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  margin-left: 15px;
+  border-width: 0px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Affichage du texte lorsque que le curseur est sur l'image (OnHover) */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Apparence du titre des jeux */
+.game-title {
+	font-family:"Book Antiqua";
+	font-size: 1.8em;
+	color: gold;
+}
+
 /*! bulma.io v0.7.5 | MIT License | github.com/jgthms/bulma */
 @-webkit-keyframes spinAround {
   from {
@@ -10564,7 +10620,7 @@ label.panel-block:hover {
     justify-content: center;
   }
   .hero-buttons .button:not(:last-child) {
-    margin-right: 1.5rem;
+    margin-right: 1.0rem;
   }
 }
 
