@@ -1,0 +1,16 @@
+.imgBg {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+#texteBg {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+#carteAccueil {
+  position: relative;
+  float: left;
+}
