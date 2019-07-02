@@ -1,92 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Construction Naturalis Inc.</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
-      media="all"
-      type="text/css"
-    />
-    <link rel="stylesheet" href="./css/index.css" />
-  </head>
 
-  <body class="has-background-light">
-    <!--Barre de navigation-->
-    <div class="container-fluid has-background-success">
-      <div class="block">
-        <nav class="navbar has-background-success">
-          <div class="navbar-brand">
-            <a class="navbar-item has-text-dark" href="./index.html">
-              <img
-                src="https://cdn3.vectorstock.com/i/1000x1000/38/52/green-leaf-icon-for-vegan-bio-eco-design-vector-22893852.jpg"
-              />
-              Naturalis
-            </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Construction Naturalis Inc.</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" media="all"
+    type="text/css" />
+  <link rel="stylesheet" href="./css/index.css" />
+</head>
 
-            <a
-              role="button"
-              class="navbar-burger burger"
-              aria-label="menu"
-              aria-expanded="false"
-              data-target="navMenu"
-            >
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-            </a>
-          </div>
-          <div class="navbar-menu has-background-success" id="navMenu">
-            <div class="navbar-start">
-              <div class="navbar-item">
-                <a
-                  href="index.html"
-                  class="navbar-item has-dropdown is-hoverable has-text-dark"
-                  >Accueil</a
-                >
-              </div>
-              <div class="navbar-item">
-                <a
-                  href="apropos.html"
-                  class="navbar-item has-dropdown is-hoverable has-text-dark"
-                  >À propos</a
-                >
-              </div>
-              <div class="navbar-item">
-                <a
-                  href="realisations.html"
-                  class="navbar-item has-dropdown is-hoverable has-text-dark"
-                  >Réalisations</a
-                >
-              </div>
-              <div class="navbar-item">
-                <a
-                  href="equipe.html"
-                  class="navbar-item has-dropdown is-hoverable has-text-dark"
-                  >L'Équipe</a
-                >
-              </div>
+<body class="has-background-light">
+  <!--Barre de navigation-->
+  <div class="container-fluid has-background-success">
+    <div class="block">
+      <nav class="navbar has-background-success">
+        <div class="navbar-brand">
+          <a class="navbar-item has-text-dark" href="./index.html">
+            <img
+              src="https://cdn3.vectorstock.com/i/1000x1000/38/52/green-leaf-icon-for-vegan-bio-eco-design-vector-22893852.jpg" />
+            Naturalis
+          </a>
+
+          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div class="navbar-menu has-background-success" id="navMenu">
+          <div class="navbar-start">
+            <div class="navbar-item">
+              <a href="index.html" class="navbar-item has-dropdown is-hoverable has-text-dark">Accueil</a>
             </div>
-            <div class="navbar-end">
-              <div class="navbar-item">
-                <a
-                  href="contact.html"
-                  class="navbar-item has-dropdown is-hoverable has-text-dark"
-                >
-                  Contact
-                </a>
-              </div>
+            <div class="navbar-item">
+              <a href="services.html" class="navbar-item has-dropdown is-hoverable has-text-dark">Services</a>
+            </div>
+            <div class="navbar-item">
+              <a href="realisations.html" class="navbar-item has-dropdown is-hoverable has-text-dark">Réalisations</a>
+            </div>
+            <div class="navbar-item">
+              <a href="equipe.html" class="navbar-item has-dropdown is-hoverable has-text-dark">L'Équipe</a>
             </div>
           </div>
-        </nav>
-      </div>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <a href="contact.html" class="navbar-item has-dropdown is-hoverable has-text-dark">
+                Contact
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
     </div>
-    <!--Fin bloc navbar-->
+  </div>
+  <!--Fin bloc navbar-->
 
-    <section class="hero is-light">
+  <section class="hero is-light">
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
@@ -103,19 +74,46 @@
       </div>
     </section>
 
-    <!-- footer -->
-    <div class="container-fluid">
+  <div class="container">
+    <div class="block">
+      <form>
+        <label for="fname">Prénom</label>
+        <input class="input is-success" type="text" id="fname" name="prenom" placeholder="Prénom">
+        <br>
+        <label for="lname">Nom</label>
+        <input class="input is-success" type="text" id="lname" name="nom" placeholder="Nom">
+        <br>
+        <label for="subject">Sujet</label>
+        <textarea id="sujet" class="textarea is-success" name="subject" placeholder="Description" style="height:200px"></textarea>
+        <br>
+        <button class="button is-success" id="btnEnvoyer" type="submit">Envoyer</button>
+
+      </form>
+    </div>
+  </div>
+  <br>
+  <!-- footer -->
+  <div class="container-fluid">
       <footer class="footer has-background-dark">
         <div class="has-text-light">
           <h1 class="subtitle has-text-light">
             Primary bold title
           </h1>
+          <span>
+            <a href="index.html">Accueil</a>
+            <a href="services.html">Services</a>
+            <a href="realisations.html">Réalisations</a>
+            <a href="equipe.html">L'Équipe</a>
+            <a href="contact.html">Contact</a>
+          </span>
           <p class="has-text-right is-italic is-size-7">
-            Primary bold subtitle@copyright Danger Nadeau
+              @copyright Danger Nadeau
           </p>
         </div>
       </footer>
     </div>
-        <script src="./js/burgerOpener.js"></script>
-  </body>
+  <script src="./js/burgerOpener.js"></script>
+  <script src="./js/pageContact.js"></script>
+</body>
+
 </html>
