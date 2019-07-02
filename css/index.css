@@ -10,7 +10,8 @@
   left: 16px;
 }
 
-#carteAccueil {
-  position: relative;
-  float: left;
+@media screen and (min-width: 1000px) {
+    #carteAccueil {
+      float: left;
+  }
 }
